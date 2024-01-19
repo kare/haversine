@@ -33,3 +33,16 @@ func TestHaversineDistance(t *testing.T) {
 		t.Errorf("expected %v miles, got %v miles", expectedMiles, miles)
 	}
 }
+
+var (
+	tempKm    float64
+	tempMiles float64
+)
+
+func BenchmarkHaversine(b *testing.B) {
+	b.ReportAllocs()
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+		tempKm, tempMiles = haversine.Distance(pLat, pLon, qLat, qLon)
+	}
+}
