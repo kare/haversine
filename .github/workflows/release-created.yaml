@@ -1,0 +1,12 @@
+---
+name: Release published
+on:
+  release:
+    types:
+      - published
+jobs:
+  released:
+    uses: kare/github/.github/workflows/go-release.yaml@main
+    with:
+      go_module_path: kkn.fi/haversine
+      version: ${{ github.event.release.tag_name }}
