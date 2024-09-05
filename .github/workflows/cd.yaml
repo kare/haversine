@@ -1,5 +1,5 @@
 ---
-name: Release published
+name: CD
 on:
   release:
     types:
